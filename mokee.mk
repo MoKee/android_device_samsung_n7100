@@ -1,4 +1,4 @@
-# Specify phone tech before including full_phone
+
 $(call inherit-product, vendor/mk/config/gsm.mk)
 
 # Release name
