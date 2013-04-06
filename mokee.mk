@@ -1,4 +1,4 @@
-
+#test
 $(call inherit-product, vendor/mk/config/gsm.mk)
 
 # Release name
