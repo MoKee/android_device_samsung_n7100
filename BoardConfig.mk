@@ -29,5 +29,9 @@ TARGET_KERNEL_CONFIG := cyanogenmod_n7100_defconfig
 # assert
 TARGET_OTA_ASSERT_DEVICE := t03g,n7100,GT-N7100
 
+ifdef MK_RELEASE
+WITH_DEXPREOPT := true
+endif
+
 # inherit from the proprietary version
 -include vendor/samsung/n7100/BoardConfigVendor.mk
