@@ -40,3 +40,7 @@ endif
 
 # inherit from the proprietary version
 -include vendor/samsung/n7100/BoardConfigVendor.mk
+
+# Recovery
+TARGET_RECOVERY_FSTAB := device/samsung/n7100/rootdir/fstab.smdk4x12
+RECOVERY_FSTAB_VERSION := 2
