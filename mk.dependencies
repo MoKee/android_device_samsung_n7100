@@ -20,5 +20,9 @@
         "target_path": "packages/apps/SamsungServiceMode",
         "branch": "cm-10.2",
         "remote": "cyanogen"
+    },
+    {
+        "repository": "android_hardware_samsung",
+        "target_path": "hardware/samsung"
     }
 ]
