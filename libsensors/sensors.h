@@ -40,8 +40,6 @@ __BEGIN_DECLS
 #define ID_P  (4)
 #define ID_GY (5)
 #define ID_PR (6)
-#define ID_LA (7)
-#define ID_GR (8)
 
 #define SSP_ACCEL  (1)
 #define SSP_GYRO   (2)
@@ -51,6 +49,16 @@ __BEGIN_DECLS
 #define SSP_LIGHT  (64)
 
 #define SSP_DEVICE_ENABLE   "/sys/class/sensors/ssp_sensor/enable"
+
+const int ssp_sensors[] = {
+  SSP_ACCEL,
+  SSP_GYRO,
+  SSP_MAG,
+  SSP_PRESS,
+  SSP_PROX,
+  SSP_LIGHT
+};
+
 
 /*****************************************************************************/
 
@@ -67,11 +75,6 @@ __BEGIN_DECLS
 #define EVENT_TYPE_ACCEL_X          REL_X  //1
 #define EVENT_TYPE_ACCEL_Y          REL_Y  //0
 #define EVENT_TYPE_ACCEL_Z          REL_Z  //2
-//#define EVENT_TYPE_ACCEL_STATUS     ABS_WHEEL //8
-
-#define EVENT_TYPE_GRAVITY_X          ABS_X  //1
-#define EVENT_TYPE_GRAVITY_Y          ABS_Y  //0
-#define EVENT_TYPE_GRAVITY_Z          ABS_Z  //2
 
 #define EVENT_TYPE_YAW              ABS_RX  //3
 #define EVENT_TYPE_PITCH            ABS_RY  //4
@@ -85,7 +88,7 @@ __BEGIN_DECLS
 #define EVENT_TYPE_TEMPERATURE      ABS_THROTTLE
 #define EVENT_TYPE_STEP_COUNT       ABS_GAS
 #define EVENT_TYPE_PROXIMITY        ABS_DISTANCE
-#define EVENT_TYPE_LIGHT            REL_HWHEEL
+#define EVENT_TYPE_LIGHT            REL_MISC
 
 #define EVENT_TYPE_GYRO_X           REL_RX
 #define EVENT_TYPE_GYRO_Y           REL_RY
@@ -105,7 +108,7 @@ __BEGIN_DECLS
 
 // conversion of magnetic data to uT units
 #define CONVERT_M                   (1.0f/16.0f)
-#define CONVERT_M_X                 (-CONVERT_M)
+#define CONVERT_M_X                 (CONVERT_M)
 #define CONVERT_M_Y                 (CONVERT_M)
 #define CONVERT_M_Z                 (CONVERT_M)
 
@@ -116,11 +119,11 @@ __BEGIN_DECLS
 #define CONVERT_O_R                 (CONVERT_O)
 
 // conversion of gyro data to SI units (radian/sec)
-#define RANGE_GYRO                  (500.0f*(float)M_PI/180.0f)
+#define RANGE_GYRO                  (2000.0f*(float)M_PI/180.0f)
 #define CONVERT_GYRO                ((70.0f / 4000.0f) * ((float)M_PI / 180.0f))
-#define CONVERT_GYRO_X              (-CONVERT_GYRO)
-#define CONVERT_GYRO_Y              (-CONVERT_GYRO)
-#define CONVERT_GYRO_Z              (-CONVERT_GYRO)
+#define CONVERT_GYRO_X              (CONVERT_GYRO)
+#define CONVERT_GYRO_Y              (CONVERT_GYRO)
+#define CONVERT_GYRO_Z              (CONVERT_GYRO)
 
 #define SENSOR_STATE_MASK           (0x7FFF)
 
